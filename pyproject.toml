@@ -1,0 +1,6 @@
+[project]
+name = "python-tempfile-lifecycle-lab"
+version = "1.0.0"
+description = "Learn Python temporary file and directory lifecycles"
+requires-python = ">=3.10"
+dependencies = []
