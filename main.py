@@ -21,11 +21,13 @@ def run_demo(base_dir=None):
     with tempfile.NamedTemporaryFile(mode="w+", prefix="tempfile-lab-", suffix=".txt", delete=True, encoding="utf-8") as handle:
         handle.write("temporary named file\n")
         handle.flush()
+        handle.seek(0)
+        read_back = handle.read()
         named_path = Path(handle.name)
         report["named_file"] = {
             "path": str(named_path),
             "exists_inside_context": named_path.exists(),
-            "read_back": named_path.read_text(encoding="utf-8"),
+            "read_back": read_back,
         }
     report["named_file"]["exists_after_context"] = named_path.exists()
     return report
